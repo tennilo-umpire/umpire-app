@@ -1,0 +1,8 @@
+public/index.html
+public/display.html
+public/assets/style.css
+public/assets/tennilo-umpire.png
+public/js/scoring.js
+public/js/storage.js
+public/js/app.js
+public/js/display.js

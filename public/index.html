@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071626" />
+  <title>TENNILO Umpire · Matchcockpit (U0.1)</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./" aria-label="TENNILO Umpire Startseite"><img src="assets/tennilo-umpire.png" alt="TENNILO Umpire" /></a>
+  <div class="header-right"><span class="version">PROTOTYP U0.1</span><span class="status" id="save-status">Lokal gespeichert</span></div>
+</header>
+<main class="wrap">
+  <section class="intro"><div><p class="eyebrow">DEIN MATCH. DEINE ENTSCHEIDUNG.</p><h1>Schiedsrichter-Cockpit</h1><p class="muted">Große Punkttasten, klare Spielstände und eine Matchakte für jede Korrektur.</p></div><button type="button" class="button button-outline" id="new-match">Neues Match</button></section>
+  <div class="notice" role="status"><strong>Entwicklungsstand:</strong> Diese erste Version speichert lokal im Browser. Die Zuschaueransicht funktioniert im selben Browserprofil. Eine unabhängige Live-Anzeige auf einem zweiten Gerät folgt mit dem sicheren Server-Abgleich.</div>
+  <div class="toolbar"><div class="segmented" role="group" aria-label="Bedienmodus"><button class="selected" type="button" data-mode="basic" aria-pressed="true">Basic</button><button type="button" data-mode="pro" aria-pressed="false">Pro</button></div><div class="toolbar-actions"><a href="display.html" target="_blank" rel="noopener" class="button button-outline">Anzeigetafel öffnen</a><button type="button" class="button button-outline" id="undo">Letzten Punkt zurücknehmen</button></div></div>
+  <div class="cockpit"><section class="panel match-panel" aria-label="Match und Punkterfassung"><div class="panel-heading"><h2 id="match-title">Match</h2><div class="match-meta"><span id="match-format">Best of 3</span><span id="match-clock">00:00</span></div></div>
+    <div class="score-head"><span>Spieler</span><span>Sätze</span><span>Spiele</span><span>Punkte</span></div>
+    <div class="score-row" data-side="0"><div class="name-area"><span class="serve-mark" id="serve-0" aria-label="Aufschlag">●</span><span id="name-0">Spieler A</span></div><strong id="sets-0">0</strong><strong id="games-0">0</strong><strong class="point-score" id="points-0">0</strong></div>
+    <div class="score-row" data-side="1"><div class="name-area"><span class="serve-mark" id="serve-1" aria-label="Aufschlag">●</span><span id="name-1">Spieler B</span></div><strong id="sets-1">0</strong><strong id="games-1">0</strong><strong class="point-score" id="points-1">0</strong></div>
+    <div class="context"><span id="game-type">Reguläres Spiel</span><span id="sets-detail">Noch kein Satz abgeschlossen</span></div>
+    <div class="point-buttons"><button class="point-button" type="button" id="award-0"><span>Punkt für</span><strong id="award-label-0">Spieler A</strong><span class="plus">+1</span></button><button class="point-button" type="button" id="award-1"><span>Punkt für</span><strong id="award-label-1">Spieler B</strong><span class="plus">+1</span></button></div>
+    <p id="match-end" class="match-end" hidden></p>
+  </section>
+  <aside class="panel side-panel" id="pro-panel"><div class="panel-heading"><h2>Digitale Matchakte</h2><span class="version">PRO</span></div><p class="muted">Erste Scorecard-Vorschau. Einträge bleiben nach Korrekturen nachvollziehbar.</p><div class="stat-grid"><div><span>Punkte erfasst</span><strong id="point-count">0</strong></div><div><span>Korrekturen</span><strong id="revoke-count">0</strong></div></div><h3>Ereignisse</h3><ol class="history" id="history"><li>Noch keine Punkte erfasst.</li></ol><p class="muted note">Weitere Profi-Funktionen (Zeitstrafen, Verwarnungen, Pausen, Scorecard-Export) folgen in späteren Versionen.</p></aside></div>
+</main>
+<dialog id="match-dialog"><form id="match-form" method="dialog"><div class="dialog-top"><h2>Neues Match</h2><button type="button" aria-label="Schließen" class="close" id="close-dialog">✕</button></div><p class="muted">Ein neuer Start ersetzt das aktuelle lokal gespeicherte Match.</p><label>Spieler A<input name="playerA" value="Spieler A" maxlength="70" required /></label><label>Spieler B<input name="playerB" value="Spieler B" maxlength="70" required /></label><div class="form-two"><label>Matchformat<select name="bestOf"><option value="3">Best of 3</option><option value="5">Best of 5</option></select></label><label>Erster Aufschlag<select name="firstServer"><option value="0">Spieler A</option><option value="1">Spieler B</option></select></label></div><label class="check"><input type="checkbox" name="noAd" /> No-Ad / entscheidender Punkt bei Einstand</label><button class="button button-primary" type="submit">Match starten</button></form></dialog>
+<footer>© TENNILO · Umpire U0.1 · Prototyp, nicht als zertifiziertes Schiedsrichtersystem freigegeben.</footer>
+</body></html>
