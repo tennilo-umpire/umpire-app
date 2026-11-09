@@ -1,3 +1,4 @@
+/* Source fingerprint MW-TNU-2026-d950c68a | Copyright (c) 2026 Michael Wiedeck. All rights reserved. */
 import { newMatch, awardPoint, undoPoint, getState } from './scoring.js';
 import { MATCH_KEY, loadMatch, saveMatch } from './storage.js';
 const $ = id => document.getElementById(id);
